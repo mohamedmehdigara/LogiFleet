@@ -23,7 +23,7 @@ import { FleetService } from '../../services/fleet.service';
       </header>
 
       <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left 2 Cols: Live Telemetry & Shipment Manifest -->
+        <!-- Left 2 Cols: Live Telemetry, Workforce Control & Shipment Manifest -->
         <div class="lg:col-span-2 space-y-6">
           <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
             <h2 class="text-xl font-bold text-slate-800 mb-4">Live Driver Telemetry</h2>
@@ -41,12 +41,15 @@ import { FleetService } from '../../services/fleet.service';
                   </span>
                 </div>
                 <div class="text-sm text-slate-500 flex gap-4">
-                  <span>GPS: [{{ driver.location.lat.toFixed(4) }}, {{ driver.location.lng.toFixed(4) ]]</span>
+                  <span>GPS: [{{ driver.location.lat.toFixed(4) }}, {{ driver.location.lng.toFixed(4) }}]</span>
                   <span class="font-medium" [class.text-red-500]="driver.batteryLevel < 20">🔋 {{ driver.batteryLevel }}%</span>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Workforce Management Control -->
+          <app-driver-management></app-driver-management>
 
           <!-- Shipment Manifest List Component -->
           <app-shipment-list></app-shipment-list>
